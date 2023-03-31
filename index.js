@@ -6,10 +6,10 @@ function trataErro(erro) {
 }
 
 function extraiLinks (texto) {
-    const regex = /\[[^[\]]*?\]\(https?:\/\/[^\s?#.].[^\s]*\)/gm
+    const regex = /\[([^[\]]*?)\]\((https?:\/\/[^\s?#.].[^\s]*)\)/gm
     const capturas = [...texto.matchAll(regex)]
-    const resultados = capturas.map(captura => ({[captura[1]]: [captura[2]]}))
-
+    const resultados = capturas.map(captura => ({[captura[1]]: captura[2]}))
+    
     return resultados
 }
 
