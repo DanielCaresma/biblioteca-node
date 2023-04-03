@@ -10,6 +10,7 @@ async function processaTexto(argumentos) {
     if(fs.lstatSync(caminho).isFile()) {
         const resultado = await pegaArquivo(caminho)
         console.log(chalk.yellow('Lista de links:'), resultado)
+
     } else if(fs.lstatSync(caminho).isDirectory()) {
         const arquivos = await fs.promises.readdir(caminho)
         arquivos.forEach(async (nomeDeArquivo) => {
